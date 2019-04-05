@@ -1,0 +1,30 @@
+version: '3.2'
+services:
+   db:
+      container_name: db
+      image: sylvainhuss/bd:2.0
+      networks:
+         net:
+            ipv4_address: 172.58.0.3
+   web:
+      container_name: web
+      build: ./web/
+      ports:
+          - "80:80"
+      environment:
+         MYSQL_ROOT_PASSWORD: mdp
+      volumes:
+         - type: bind
+           source: ./web/files/
+           target: /var/www/html/
+      networks:
+         net:
+            ipv4_address: 172.58.0.2
+
+networks:
+   net:
+      ipam:
+         driver: default
+         config:
+            - subnet: 172.58.0.0/16
+

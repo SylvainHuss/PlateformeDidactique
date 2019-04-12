@@ -111,6 +111,7 @@ CREATE TABLE `realise` (
   `temps_debut` time DEFAULT NULL,
   `temps_valide` time DEFAULT NULL,
   `nb_essai` int(11) DEFAULT NULL,
+  `valide` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_ex`,`id_eleve`),
   KEY `id_eleve` (`id_eleve`),
   CONSTRAINT `realise_ibfk_1` FOREIGN KEY (`id_ex`) REFERENCES `exercice` (`id`),
@@ -124,7 +125,6 @@ CREATE TABLE `realise` (
 
 LOCK TABLES `realise` WRITE;
 /*!40000 ALTER TABLE `realise` DISABLE KEYS */;
-INSERT INTO `realise` VALUES (1,1,'09:46:05','09:49:59',3),(1,2,'11:41:57','11:41:57',1);
 /*!40000 ALTER TABLE `realise` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,4 +163,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-05 23:38:10
+-- Dump completed on 2019-04-07  0:04:08
